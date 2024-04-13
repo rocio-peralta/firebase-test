@@ -6,7 +6,7 @@ const Auth = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  console.log(auth?.currentUser?.photoURL)
+  console.log(auth?.currentUser?.displayName)
 
   const signIn = async () => {
     try {
@@ -26,8 +26,8 @@ const Auth = () => {
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider)
-    } catch (error) {
-      console.log(error)
+    } catch (err) {
+      console.log(err)
     }
   }
   return (
@@ -44,8 +44,9 @@ const Auth = () => {
       />
       <button onClick={signIn}>Sign In</button>
 
-      <button onClick={signInWithGoogle}>Sign in wiht Gmail</button>
+      <button onClick={signInWithGoogle}>Sign in with Gmail</button>
       <button onClick={logout}>Sign Out</button>
+      <div>Hola {auth?.currentUser?.displayName}</div>
     </div>
   )
 }
