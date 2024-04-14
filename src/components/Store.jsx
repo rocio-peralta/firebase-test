@@ -39,10 +39,10 @@ function Store() {
         <button onClick={uploadFiled}> Upload</button>
       </div>
       <div>
-        {imageList.map((url) => {
+        {imageList.map((url, index) => {
           return (
             <img
-              key={url}
+              key={index}
               src={url}
               alt="img"
               style={{ width: '100px', height: '100px' }}
